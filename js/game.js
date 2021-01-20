@@ -22,6 +22,17 @@ const objs = [];
 const colors = ['#ffba08','#faa307','#f48c06','#e85d04','#dc2f02','#d00000','#9d0208','#6a040f','#370617','#03071e']
 
 let gyroscope = new Gyroscope({frequency: 60});
+let gyroValue = {
+    x: 0,
+    y: 0,
+    z: 0
+}
+ gyroscope.addEventListener('reading', e => {
+     gyroValue.x += gyroscope.x
+     gyroValue.y += gyroscope.y
+     gyroValue.z += gyroscope.z
+     document.getElementById("gyro").innerHTML = Math.floor(gyroValue.x) + "<br>" + Math.floor(gyroValue.y) + "<br>" + Math.floor(gyroValue.z)
+ });
 gyroscope.start();
 
 
@@ -44,7 +55,7 @@ function init() {
 
 function gameloop(){
 
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     init();
