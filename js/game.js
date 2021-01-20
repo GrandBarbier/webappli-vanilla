@@ -21,6 +21,11 @@ const objs = [];
 
 const colors = ['black','#ffba08','#faa307','#f48c06','#e85d04','#dc2f02','#d00000','#9d0208','#6a040f','#370617','#03071e']
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+
 let gyroscope = new Gyroscope({frequency: 60});
 let gyroValue = {
     x: 0,
@@ -36,12 +41,6 @@ let gyroValue = {
 gyroscope.start();
 
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-
-
-
 function init() {
     let r = canvas.width/2;
     let x = gyroValue.y ;
@@ -54,6 +53,7 @@ function init() {
     }
 }
 
+
 function gameloop(){
 
     
@@ -62,9 +62,9 @@ function gameloop(){
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     init();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     objs.forEach(obj => drawCircle(obj));
 
-    
 
     //ctx.drawImage(img, x, y, CUBE_SIZE_X, CUBE_SIZE_Y)
 
@@ -100,6 +100,6 @@ function drawCircle(obj){
     ctx.fillStyle = obj.color;
     ctx.arc(obj.x, obj.y, obj.r,0, 2 * Math.PI);
     ctx.fill();
-    //ctx.closePath();
+    ctx.closePath();
     
 }
