@@ -96,8 +96,8 @@ function crircleCreate(x,y,r,color) {
 }
 
 function drawCircle(obj){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = obj.color;
     ctx.arc(obj.x, obj.y, obj.r,0, 2 * Math.PI);
     ctx.fill();
