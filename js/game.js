@@ -47,8 +47,8 @@ function init() {
     for (let i = 0; i < colors.length; i++) {
         objs.push(crircleCreate(canvas.width/2 + x, canvas.height/2 + y,r,colors[i]));
         r = r/1.3;
-        x = x*1.2;
-        y = y*1.2;
+        x = x*1.1;
+        y = y*1.1;
     }
 }
 
