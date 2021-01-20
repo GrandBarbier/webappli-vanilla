@@ -23,6 +23,7 @@ const colors = ['#ffba08','#faa307','#f48c06','#e85d04','#dc2f02','#d00000','#9d
 
 let gyroscope = new Gyroscope({frequency: 60});
 
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -31,8 +32,10 @@ function getRandomInt(max) {
 
 function init() {
     let r = canvas.width/2 - 5;
+    let x = gyroscope.x;
+    let y = gyroscope.y;
     for (let i = 0; i < colors.length; i++) {
-        objs.push(crircleCreate(canvas.width/2, canvas.height/2,r,colors[i]));
+        objs.push(crircleCreate(canvas.width/2 + x, canvas.height/2 + y,r,colors[i]));
         r = r/1.3;
     }
 
