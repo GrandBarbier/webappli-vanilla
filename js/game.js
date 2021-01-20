@@ -48,15 +48,15 @@ function init() {
     for (let i = 0; i < colors.length; i++) {
         objs.push(crircleCreate(canvas.width/2 + x, canvas.height/2 + y,r,colors[i]));
         r = r/1.3;
-        x = x*1.15;
-        y = y*1.15;
+        x = x*1.2;
+        y = y*1.2;
     }
 }
 
 
 function gameloop(){
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
     
     //ctx.fillStyle = 'Black';
     //ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -96,6 +96,7 @@ function crircleCreate(x,y,r,color) {
 }
 
 function drawCircle(obj){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.fillStyle = obj.color;
     ctx.arc(obj.x, obj.y, obj.r,0, 2 * Math.PI);
