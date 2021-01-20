@@ -1,8 +1,8 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-
 canvas.width = document.documentElement.clientWidth || document.body.clientWidth;
 canvas.height = document.documentElement.clientHeight || document.body.clientHeight;
+
 
 
 
@@ -19,7 +19,7 @@ const CUBE_SIZE_Y = 100
 
 const objs = [];
 
-const colors = ['#ffba08','#faa307','#f48c06','#e85d04','#dc2f02','#d00000','#9d0208','#6a040f','#370617','#03071e']
+const colors = ['black','#ffba08','#faa307','#f48c06','#e85d04','#dc2f02','#d00000','#9d0208','#6a040f','#370617','#03071e']
 
 let gyroscope = new Gyroscope({frequency: 60});
 let gyroValue = {
@@ -43,23 +43,27 @@ function getRandomInt(max) {
 
 
 function init() {
-    let r = canvas.width/2 - 5;
-    let x = gyroValue.y * 50;
-    let y = gyroValue.x * 50;
+    let r = canvas.width/2;
+    let x = gyroValue.y ;
+    let y = gyroValue.x ;
     for (let i = 0; i < colors.length; i++) {
         objs.push(crircleCreate(canvas.width/2 + x, canvas.height/2 + y,r,colors[i]));
         r = r/1.3;
+        x = x*1.2;
+        y = y*1.2;
     }
 }
 
 function gameloop(){
 
-    ctx.fillStyle = 'white';
+    
+    ctx.fillStyle = 'Black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     init();
     objs.forEach(obj => drawCircle(obj));
 
+    
 
     //ctx.drawImage(img, x, y, CUBE_SIZE_X, CUBE_SIZE_Y)
 
@@ -96,4 +100,5 @@ function drawCircle(obj){
     ctx.arc(obj.x, obj.y, obj.r,0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
+    
 }
