@@ -1,7 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = document.documentElement.clientWidth || document.body.clientWidth;
-canvas.height = document.documentElement.clientHeight || document.body.clientHeight;
+
 
 
 
@@ -56,10 +55,13 @@ function init() {
 
 function gameloop(){
 
-    
-    
-    //ctx.fillStyle = 'Black';
-    //ctx.fillRect(0, 0, canvas.width, canvas.height);
+    canvas.width = document.documentElement.clientWidth || document.body.clientWidth;
+    canvas.height = document.documentElement.clientHeight || document.body.clientHeight;
+
+    objs.length = 0;
+    console.log(objs.length);
+    ctx.fillStyle = 'Black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     init();
     objs.forEach(obj => drawCircle(obj));
@@ -97,7 +99,6 @@ function crircleCreate(x,y,r,color) {
 
 function drawCircle(obj){
     ctx.beginPath();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = obj.color;
     ctx.arc(obj.x, obj.y, obj.r,0, 2 * Math.PI);
     ctx.fill();
