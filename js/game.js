@@ -42,13 +42,13 @@ gyroscope.start();
 
 function init() {
     let r = canvas.width/2;
-    let x = gyroValue.y ;
-    let y = gyroValue.x ;
+    let x = gyroValue.y * 1.5;
+    let y = gyroValue.x * 1.5;
     for (let i = 0; i < colors.length; i++) {
         objs.push(crircleCreate(canvas.width/2 + x, canvas.height/2 + y,r,colors[i]));
         r = r/1.3;
-        x = x * 0.9;
-        y = y * 0.9;
+        x = x * 0.8;
+        y = y * 0.8;
     }
 }
 
