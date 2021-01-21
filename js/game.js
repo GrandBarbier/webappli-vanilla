@@ -47,9 +47,9 @@ gyroscope.start();
 
 
 function init() {
-    let r = canvas.width/2;
-    let x = gyroValue.y * 1.5;
-    let y = gyroValue.x * 1.5;
+    let r = canvas.width/2 - 10;
+    let x = gyroValue.y ;
+    let y = gyroValue.x ;
     for (let i = 0; i < colors.length; i++) {
         objs.push(crircleCreate(canvas.width/2 + x, canvas.height/2 + y,r,colors[i]));
         r = r/1.05;
